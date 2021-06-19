@@ -1,5 +1,6 @@
 package com.deepak.springreactivecassandraexample.controller;
 
+import com.deepak.springreactivecassandraexample.model.Product;
 import com.deepak.springreactivecassandraexample.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,7 +14,7 @@ public class ProductController {
     private ProductRepository productRepository;
 
     @GetMapping("/products")
-    public Flux getProducts() {
+    public Flux<Product> getProducts() {
         return productRepository.findAll();
     }
 }
